@@ -8,8 +8,7 @@ EXPOSE 6869 6868
 
 RUN apt-get update && \
   apt-get upgrade -y && \
-  apt-get install -y --no-install-recommends \
-    ca-certificates \
+  apt-get install -y --no-install-recommends ca-certificates && \
   apt-get autoclean && \
   curl -sL "https://github.com/wavesplatform/Waves/releases/download/${WAVES_VERSION}/waves-${WAVES_VERSION}-testnet-jar.tgz" | gunzip | tar -x && \
   mkdir /waves
