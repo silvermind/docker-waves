@@ -13,6 +13,8 @@ RUN apt-get update && \
   curl -sL "https://github.com/wavesplatform/Waves/releases/download/${WAVES_VERSION}/waves-${WAVES_VERSION}-testnet-jar.tgz" | gunzip | tar -x && \
   mkdir /waves
 
+COPY waves-testnet.json /
+
 VOLUME ["/waves"]
 
-ENTRYPOINT ["java", "-jar", "/waves.jar", "waves-testnet.json"]
+ENTRYPOINT ["java", "-jar", "/waves.jar", "/waves-testnet.json"]
